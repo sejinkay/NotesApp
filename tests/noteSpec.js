@@ -37,6 +37,22 @@ var note = new Note();
       console.log("NoteList test3 passed!")
     };
   };
+
+  function testView() {
+    var note = new NoteList();
+    var view = new NoteView();
+    var htmlList = "<ul><li><div>Moody blues</div></li></ul><ul><li><div>Crash</div></li></ul>";
+
+    note.create("Moody blues")
+    note.create("Crash")
+
+    if (view.show(note) !== htmlList) {
+      throw new Error("List and view doesn't match!");
+    }else {
+      console.log("View test passed!")
+    };
+  };
     testText();
     testList();
+    testView();
 })(this);
