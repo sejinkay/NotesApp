@@ -53,7 +53,13 @@
     };
   };
 
+  // function testController() {
+  //   var controller = new NoteController();
+  //
+  // };
+
     testNote();
     testList();
     testView();
+    // testController();
 })(this);
