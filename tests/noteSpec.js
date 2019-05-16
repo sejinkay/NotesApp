@@ -1,6 +1,6 @@
 (function(exports) {
   function testNote () {
-    var note = new Note();
+    var note = new Note("My favourite language is JavaScript.");
 
     assert.isTrue(note.text === "My favourite language is JavaScript.");
     console.log("Note test passed!");
@@ -53,13 +53,30 @@
     };
   };
 
-  // function testController() {
-  //   var controller = new NoteController();
-  //
-  // };
+  function testController() {
+    var controller = new NoteController();
+
+    assert.isTrue(controller !== undefined);
+    console.log("Controller test passed!");
+
+    // var hello = "<h1><ul><li><div>Hello</div></li></ul></h1>"
+    // controller.noteList.create("Hello")
+    //
+    // assert.isTrue(controller.noteListView.show(controller.noteList.notes) === hello);
+    // console.log("Controller test passed!");
+  };
+
+  function testSingleView() {
+    var note = new Note("Favourite drink: seltzer");
+    var singleNote = new SingleNoteView(note)
+
+    assert.isTrue(singleNote.show() === `<div> ${note.return()} </div>`)
+    console.log("Single View test passed!");
+  };
 
     testNote();
     testList();
     testView();
-    // testController();
+    testController();
+    testSingleView();
 })(this);
