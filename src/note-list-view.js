@@ -5,7 +5,11 @@
 NoteView.prototype.show = function(noteList) {
   return noteList.notes
     .map(function(note) {
-      return "<h1><ul><li><div>" + note + "</div></li></ul></h1>"
+      if(note.length > 20) {
+        return "<h1><ul><li><div>" + `${note.substr(0, 20)}...` + "</div></li></ul></h1>"
+      }else {
+        return "<h1><ul><li><div>" + `${note.substr(0, 20)}` + "</div></li></ul></h1>"
+      }
     }).join('');
 }
 

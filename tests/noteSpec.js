@@ -29,6 +29,7 @@
     var note = new NoteList();
     var view = new NoteView();
     var htmlList = "<h1><ul><li><div>Moody blues</div></li></ul></h1><h1><ul><li><div>Crash</div></li></ul></h1>";
+    var longlist = "<h1><ul><li><div>Moody blues</div></li></ul></h1><h1><ul><li><div>Crash</div></li></ul></h1><h1><ul><li><div>There must be some k...</div></li></ul></h1>";
 
     if (view.show(note) !== "") {
       throw new Error("List and view doesn't match!");
@@ -51,6 +52,11 @@
     }else {
       console.log("View test2 passed!(several items)")
     };
+
+    note.create("There must be some kind of way outta here")
+    assert.isTrue(view.show(note) === longlist);
+    console.log("View test3 passed!(long list)")
+
   };
 
   function testController() {
