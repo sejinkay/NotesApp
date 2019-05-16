@@ -12,3 +12,6 @@
 
   exports.NoteController = NoteController;
 })(this);
+
+var display = new NoteController();
+console.log(display.displayNote());

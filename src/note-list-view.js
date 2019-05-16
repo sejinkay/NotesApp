@@ -5,7 +5,7 @@
 NoteView.prototype.show = function(noteList) {
   return noteList.notes
     .map(function(note) {
-      return "<ul><li><div>" + note + "</div></li></ul>"
+      return "<h1><ul><li><div>" + note + "</div></li></ul></h1>"
     }).join('');
 }
 

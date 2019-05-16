@@ -28,7 +28,7 @@
   function testView() {
     var note = new NoteList();
     var view = new NoteView();
-    var htmlList = "<ul><li><div>Moody blues</div></li></ul><ul><li><div>Crash</div></li></ul>";
+    var htmlList = "<h1><ul><li><div>Moody blues</div></li></ul></h1><h1><ul><li><div>Crash</div></li></ul></h1>";
 
     if (view.show(note) !== "") {
       throw new Error("List and view doesn't match!");
@@ -38,7 +38,7 @@
 
     note.create("Moody blues")
 
-    if (view.show(note) !== "<ul><li><div>Moody blues</div></li></ul>") {
+    if (view.show(note) !== "<h1><ul><li><div>Moody blues</div></li></ul></h1>") {
       throw new Error("List and view doesn't match!");
     }else {
       console.log("View test1 passed!(one item)")
