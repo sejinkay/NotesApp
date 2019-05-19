@@ -6,7 +6,8 @@ How to run
 ----
 
 1. Clone this repo
-2. Open `index.html`
+2. Run `http-server`
+3. Visit `http://localhost:8080/`
 
 
 

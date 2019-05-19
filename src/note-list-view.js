@@ -5,10 +5,10 @@
 NoteView.prototype.show = function(noteList) {
   return noteList.notes
     .map(function(note) {
-      if(note.length > 20) {
-        return "<h1><ul><li><div>" + `${note.substr(0, 20)}...` + "</div></li></ul></h1>"
+      if(note.text.length > 20) {
+        return "<h1><ul><li><div>" + `<a href = "http://localhost:8080#notes/${note.id}">` + `${note.text.substr(0, 20)}...` + "</a>" + "</div></li></ul></h1>"
       }else {
-        return "<h1><ul><li><div>" + `${note.substr(0, 20)}` + "</div></li></ul></h1>"
+        return "<h1><ul><li><div>" + `<a href = "http://localhost:8080#notes/${note.id}">` + `${note.text.substr(0, 20)}` + "</a>" + "</div></li></ul></h1>"
       }
     }).join('');
 }

@@ -20,7 +20,7 @@
     console.log("List test2 passed!")
 
     note.create("Favourite drink: seltzer")
-    assert.isTrue(note.notes.includes("Favourite drink: seltzer") === true);
+    assert.isTrue(note.notes[0].text.includes("Favourite drink: seltzer") === true);
     console.log("List test3 passed!")
 
   };
@@ -28,8 +28,8 @@
   function testView() {
     var note = new NoteList();
     var view = new NoteView();
-    var htmlList = "<h1><ul><li><div>Moody blues</div></li></ul></h1><h1><ul><li><div>Crash</div></li></ul></h1>";
-    var longlist = "<h1><ul><li><div>Moody blues</div></li></ul></h1><h1><ul><li><div>Crash</div></li></ul></h1><h1><ul><li><div>There must be some k...</div></li></ul></h1>";
+    var htmlList = "<h1><ul><li><div>" + `<a href = "http://localhost:8080#notes/4">` + "Moody blues</a></div></li></ul></h1><h1><ul><li><div>" + `<a href = "http://localhost:8080#notes/5">` + "Crash</a></div></li></ul></h1>";
+    var longlist = "<h1><ul><li><div>" + `<a href = "http://localhost:8080#notes/4">` + "Moody blues</a></div></li></ul></h1><h1><ul><li><div>" + `<a href = "http://localhost:8080#notes/5">` + "Crash</a></div></li></ul></h1><h1><ul><li><div>" + `<a href = "http://localhost:8080#notes/6">` + "There must be some k...</a></div></li></ul></h1>";
 
     if (view.show(note) !== "") {
       throw new Error("List and view doesn't match!");
@@ -39,7 +39,7 @@
 
     note.create("Moody blues")
 
-    if (view.show(note) !== "<h1><ul><li><div>Moody blues</div></li></ul></h1>") {
+    if (view.show(note) !== "<h1><ul><li><div>" + `<a href = "http://localhost:8080#notes/4">` + "Moody blues</a></div></li></ul></h1>") {
       throw new Error("List and view doesn't match!");
     }else {
       console.log("View test1 passed!(one item)")
@@ -54,6 +54,7 @@
     };
 
     note.create("There must be some kind of way outta here")
+
     assert.isTrue(view.show(note) === longlist);
     console.log("View test3 passed!(long list)")
 
@@ -64,12 +65,7 @@
 
     assert.isTrue(controller !== undefined);
     console.log("Controller test passed!");
-
-    // var hello = "<h1><ul><li><div>Hello</div></li></ul></h1>"
-    // controller.noteList.create("Hello")
-    //
-    // assert.isTrue(controller.noteListView.show(controller.noteList.notes) === hello);
-    // console.log("Controller test passed!");
+    
   };
 
   function testSingleView() {
@@ -77,7 +73,7 @@
     var singleNote = new SingleNoteView(note)
 
     assert.isTrue(singleNote.show() === `<div> ${note.return()} </div>`)
-    console.log("Single View test passed!");
+    console.log("SingleView test passed!");
   };
 
     testNote();
