@@ -13,6 +13,7 @@
 
       function makeRedirection() {
         document.addEventListener("click", function(clickEvent) {
+          window.addEventListener("hashchange", redirection);
 
             function redirection() {
               var id = Number(window.location.href.split("#notes/")[1]);
@@ -20,7 +21,6 @@
               console.log(id);
               console.log("its working!")
             }
-            redirection();
         })
       }
     }
